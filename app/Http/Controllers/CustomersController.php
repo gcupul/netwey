@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Customers;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Auth;
 
 class CustomersController extends Controller
@@ -135,10 +136,10 @@ class CustomersController extends Controller
 
         if(!is_null($customer)) {
             if(Customers::where(['dni' => $id, 'id_reg' => $id_reg, 'id_com' => $id_com])->whereIn('status', array('A', 'I'))->update(['status' => 'trash'])){
-                Log::info('Customer Eliminado. ', $request->all());
+                Log::info('Customer Eliminado. ');
                 return response()->json(['success' => 'true']);
             } else {
-                Log::error('Error al intentar eliminar el Customer. ', $request->all());
+                Log::error('Error al intentar eliminar el Customer. ');
                 return response()->json(['success' => 'false']);
             }
         } else {
