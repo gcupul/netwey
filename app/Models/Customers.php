@@ -11,6 +11,9 @@ class Customers extends Model
    public $timestamps = false;
    public $dates = ["date_reg"];
    protected $fillable = [
+       'dni',
+       'id_reg',
+       'id_com',
        'email', 
        'name', 
        'last_name', 
