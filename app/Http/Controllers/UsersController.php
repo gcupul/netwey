@@ -31,8 +31,10 @@
             return $this->sendError('Validation Error.', $validator->errors());       
         }
     
+        $apikey = base64_encode(str_random(40));
         $input = $request->all();
         $input['password'] = app('hash')->make($input['password']);
+        $input['api_key'] = $apikey;
         $user = User::create($input);
         $apikey = base64_encode(str_random(40));
         return response()->json(['status' => 'success','api_key' => $apikey]);
