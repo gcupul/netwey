@@ -16,7 +16,7 @@ class AddRegionsTable extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->id('id_reg');
             $table->string('description');
-            $table->enum('status', ['A', 'I', 'trash']);
+            $table->enum('status', ['A', 'I', 'trash'])->default('A');
         });
     }
 
