@@ -17,7 +17,7 @@ class AddCommunesTable extends Migration
             $table->bigInteger('id_com');
             $table->foreignId('id_reg');
             $table->string('description');
-            $table->enum('status', ['A', 'I', 'trash']);
+            $table->enum('status', ['A', 'I', 'trash'])->default('A');
             $table->primary(['id_com','id_reg']);
             $table->foreign('id_reg')->references('id_reg')->on('regions');
         });
