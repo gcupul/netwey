@@ -20,7 +20,7 @@ class AddCustomersTable extends Migration
             $table->string('email')->unique();
             $table->string('name');
             $table->string('last_name');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->timestamp('date_reg', 0);
             $table->enum('status', ['A', 'I', 'trash'])->default('A');
             $table->primary(['dni', 'id_com','id_reg']);
