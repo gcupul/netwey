@@ -22,7 +22,7 @@ class AddCustomersTable extends Migration
             $table->string('last_name');
             $table->string('address');
             $table->timestamp('date_reg', 0);
-            $table->enum('status', ['A', 'I', 'trash']);
+            $table->enum('status', ['A', 'I', 'trash'])->default('A');
             $table->primary(['dni', 'id_com','id_reg']);
             $table->foreign('id_reg')->references('id_reg')->on('regions');
             $table->foreign('id_com')->references('id_com')->on('communes');
