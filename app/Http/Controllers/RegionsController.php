@@ -93,10 +93,10 @@ class RegionsController extends Controller
 
         if(!is_null($region)) {
             if($region->update(['status' => 'trash'])){
-                Log::info('Region Eliminada. ', $request->all());
+                Log::info('Region Eliminada. ');
                 return response()->json(['success' => 'true']);
             } else {
-                Log::error('Error al intentar eliminar la Region. ', $request->all());
+                Log::error('Error al intentar eliminar la Region. ');
                 return response()->json(['success' => 'false']);
             }
         } else {
