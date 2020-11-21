@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Communes;
+use Illuminate\Support\Facades\Log;
 use Auth;
 
 class CommunesController extends Controller
@@ -93,10 +94,10 @@ class CommunesController extends Controller
 
         if(!is_null($commun)) {
             if($commun->update(['status' => 'trash'])){
-                Log::info('Communa Eliminada. ', $request->all());
+                Log::info('Communa Eliminada. ');
                 return response()->json(['success' => 'true']);
             } else {
-                Log::error('Error al intentar eliminar la Communa. ', $request->all());
+                Log::error('Error al intentar eliminar la Communa. ');
                 return response()->json(['success' => 'false']);
             }
         } else {
